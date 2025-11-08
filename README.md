@@ -4,9 +4,9 @@ Product Catalog Matching System
 
 ## Overview
 
-This project solves a critical data-matching bottleneck for a retail company. [cite\_start]Currently, sales teams and customers use unstructured, natural-language descriptions (e.g., "Need a blak polo shirt, size M"), while the inventory system operates on structured SKUs (e.g., `SKU1000172`, `Essential Shirt`, `Black`, `S`)[cite: 89, 90].
+This project solves a critical data-matching bottleneck for a retail company. Currently, sales teams and customers use unstructured, natural-language descriptions (e.g., "Need a blak polo shirt, size M"), while the inventory system operates on structured SKUs (e.g., `SKU1000172`, `Essential Shirt`, `Black`, `S`)[cite: 89, 90].
 
-[cite\_start]The existing manual matching process is slow (2-3 hours/day) and causes costly fulfillment errors and lost sales [cite: 92-95].
+The existing manual matching process is slow (2-3 hours/day) and causes costly fulfillment errors and lost sales [cite: 92-95].
 
 This system automates the process by:
 
@@ -38,7 +38,7 @@ Precision@3:           33 / 34 = 97.1%
 ---------------------------
 ```
 
-[cite\_start]The **100% Top-3 Accuracy (Recall@3)** is the key business metric[cite: 133]. [cite\_start]It means that for 100% of queries, the correct item is presented to the user in the top 3 suggestions, completely eliminating the need for manual search and solving the core pain point[cite: 92].
+The **100% Top-3 Accuracy (Recall@3)** is the key business metric[cite: 133]. It means that for 100% of queries, the correct item is presented to the user in the top 3 suggestions, completely eliminating the need for manual search and solving the core pain point[cite: 92].
 
 ## Project Structure
 
@@ -157,5 +157,6 @@ The matching algorithm is a two-stage hybrid model:
   * **Out-of-Vocabulary (OOV) Attributes:** If a query contains a new brand or color not present anywhere in the catalog (e.g., a query for "Nike" when the brand is not in the catalog), the model will not be able to extract it. It will, however, still attempt to match based on the other attributes (e.g., "sneakers", "blue").
 
   * **Troubleshooting `FileNotFoundError`:** All scripts assume they are being run from the root directory of the project. If you get an error that `data/b_product_catalog.csv` cannot be found, ensure you are running the python commands from the main project folder.
+
 
 
