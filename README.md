@@ -10,9 +10,9 @@ This project solves a critical data-matching bottleneck for a retail company. [c
 
 This system automates the process by:
 
-1.  [cite\_start]**Extracting** structured attributes (like color, size, brand) from the messy text[cite: 109].
-2.  [cite\_start]**Matching** these attributes against the 800-SKU product catalog[cite: 104].
-3.  [cite\_start]**Ranking** and returning the Top 3 most likely SKU matches with a confidence score[cite: 107].
+1.  **Extracting** structured attributes (like color, size, brand) from the messy text[cite: 109].
+2.  **Matching** these attributes against the 800-SKU product catalog[cite: 104].
+3.  **Ranking** and returning the Top 3 most likely SKU matches with a confidence score[cite: 107].
 
 ## Key Features
 
@@ -71,8 +71,7 @@ This project is written in Python 3.
 1.  **Clone the repository:**
 
     ```sh
-    git clone <your-repo-url>
-    cd <your-repo-name>
+    git clone https://github.com/georgekli/CatalogMatch.git
     ```
 
 2.  **Create a virtual environment (Recommended):**
@@ -86,17 +85,6 @@ This project is written in Python 3.
 
     ```sh
     pip install -r requirements.txt
-    ```
-
-    *If `requirements.txt` is missing, here are the likely contents based on imports:*
-
-    ```
-    pandas
-    rapidfuzz
-    webcolors
-    numpy
-    nltk
-    scikit-learn
     ```
 
 4.  **Download NLTK data:**
@@ -169,3 +157,4 @@ The matching algorithm is a two-stage hybrid model:
   * **Out-of-Vocabulary (OOV) Attributes:** If a query contains a new brand or color not present anywhere in the catalog (e.g., a query for "Nike" when the brand is not in the catalog), the model will not be able to extract it. It will, however, still attempt to match based on the other attributes (e.g., "sneakers", "blue").
 
   * **Troubleshooting `FileNotFoundError`:** All scripts assume they are being run from the root directory of the project. If you get an error that `data/b_product_catalog.csv` cannot be found, ensure you are running the python commands from the main project folder.
+
