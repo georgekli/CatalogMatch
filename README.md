@@ -4,15 +4,15 @@ Product Catalog Matching System
 
 ## Overview
 
-This project solves a critical data-matching bottleneck for a retail company. Currently, sales teams and customers use unstructured, natural-language descriptions (e.g., "Need a blak polo shirt, size M"), while the inventory system operates on structured SKUs (e.g., `SKU1000172`, `Essential Shirt`, `Black`, `S`)[cite: 89, 90].
+This project solves a critical data-matching bottleneck for a retail company. Currently, sales teams and customers use unstructured, natural-language descriptions (e.g., "Need a blak polo shirt, size M"), while the inventory system operates on structured SKUs (e.g., `SKU1000172`, `Essential Shirt`, `Black`, `S`).
 
-The existing manual matching process is slow (2-3 hours/day) and causes costly fulfillment errors and lost sales [cite: 92-95].
+The existing manual matching process is slow (2-3 hours/day) and causes costly fulfillment errors and lost sales.
 
 This system automates the process by:
 
-1.  **Extracting** structured attributes (like color, size, brand) from the messy text[cite: 109].
-2.  **Matching** these attributes against the 800-SKU product catalog[cite: 104].
-3.  **Ranking** and returning the Top 3 most likely SKU matches with a confidence score[cite: 107].
+1.  **Extracting** structured attributes (like color, size, brand) from the messy text.
+2.  **Matching** these attributes against the 800-SKU product catalog.
+3.  **Ranking** and returning the Top 3 most likely SKU matches with a confidence score.
 
 ## Key Features
 
@@ -38,7 +38,7 @@ Precision@3:           33 / 34 = 97.1%
 ---------------------------
 ```
 
-The **100% Top-3 Accuracy (Recall@3)** is the key business metric[cite: 133]. It means that for 100% of queries, the correct item is presented to the user in the top 3 suggestions, completely eliminating the need for manual search and solving the core pain point[cite: 92].
+The **100% Top-3 Accuracy (Recall@3)** is the key business metric. It means that for 100% of queries, the correct item is presented to the user in the top 3 suggestions, completely eliminating the need for manual search and solving the core pain point.
 
 ## Project Structure
 
@@ -151,11 +151,12 @@ The matching algorithm is a two-stage hybrid model:
 
 ## Known Limitations & Troubleshooting
 
-  * **Catalog Dependency:** The model's accuracy is highly dependent on the quality of the `data/b_product_catalog.csv`[cite: 104]. If an item is missing its `Brand`, `Material`, or `Features` in the catalog, it is less likely to be matched by the text ranker.
+  * **Catalog Dependency:** The model's accuracy is highly dependent on the quality of the `data/b_product_catalog.csv`. If an item is missing its `Brand`, `Material`, or `Features` in the catalog, it is less likely to be matched by the text ranker.
   * **Strict Size Filter:** The `Size` filter is deliberately strict. If a user enters the wrong size (e.g., "S" when they meant "M"), the system will *not* find the "M" item. This is a business logic trade-off, prioritizing accuracy for a correct query over "guessing" a different size.
   * **Out-of-Vocabulary (OOV) Attributes:** If a query contains a new brand or color not present anywhere in the catalog (e.g., a query for "Nike" when the brand is not in the catalog), the model will not be able to extract it. It will, however, still attempt to match based on the other attributes (e.g., "sneakers", "blue").
 
   * **Troubleshooting `FileNotFoundError`:** All scripts assume they are being run from the root directory of the project. If you get an error that `data/b_product_catalog.csv` cannot be found, ensure you are running the python commands from the main project folder.
+
 
 
 
